@@ -1,3 +1,10 @@
+:root {
+  --modal-radius: 14px;
+  --modal-blur: blur(12px);
+  --modal-transition: all 0.3s ease;
+}
+
+
 .app-container {
   transition: background-color 0.3s ease;
 }
@@ -197,3 +204,142 @@
   z-index: 10;
 }
 
+[data-theme="light"] {
+  --modal-bg: rgba(255, 255, 255, 0.9);
+  --modal-header-bg: rgba(102, 126, 234, 0.12);
+  --modal-sidebar-bg: rgba(102, 126, 234, 0.08);
+
+  --modal-border: rgba(102, 126, 234, 0.25);
+  --modal-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.12),
+    0 0 0 1px rgba(102, 126, 234, 0.15);
+
+  --modal-text-primary: rgb(30, 32, 40);
+  --modal-text-secondary: rgb(90, 95, 120);
+
+  --modal-active-bg: rgba(102, 126, 234, 0.18);
+  --modal-icon-color: rgb(102, 126, 234);
+}
+
+[data-theme="dark"] {
+  --modal-bg: rgb(15, 18, 28);
+  --modal-header-bg: rgb(24, 28, 40);
+  --modal-sidebar-bg: rgb(19, 23, 34);
+
+  --modal-border: rgba(255, 255, 255, 0.12);
+  --modal-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.65),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+
+  --modal-text-primary: rgb(220, 223, 230);
+  --modal-text-secondary: rgb(160, 165, 180);
+
+  --modal-active-bg: rgb(34, 40, 58);
+  --modal-icon-color: rgb(185, 190, 205);
+}
+
+[data-theme="dark"] {
+  --modal-bg: rgb(15, 18, 28);
+  --modal-header-bg: rgb(24, 28, 40);
+  --modal-sidebar-bg: rgb(19, 23, 34);
+
+  --modal-border: rgba(255, 255, 255, 0.12);
+  --modal-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.65),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+
+  --modal-text-primary: rgb(220, 223, 230);
+  --modal-text-secondary: rgb(160, 165, 180);
+
+  --modal-active-bg: rgb(34, 40, 58);
+  --modal-icon-color: rgb(185, 190, 205);
+}
+
+.modal-content {
+  background: var(--modal-bg);
+  border-radius: var(--modal-radius);
+  border: 1px solid var(--modal-border);
+  box-shadow: var(--modal-shadow);
+  backdrop-filter: var(--modal-blur);
+  transition: var(--modal-transition);
+}
+
+.modal-header {
+  background: var(--modal-header-bg);
+  color: var(--modal-text-primary);
+}
+
+.modal-sidebar {
+  background: var(--modal-sidebar-bg);
+}
+
+.modal-body {
+  color: var(--modal-text-secondary);
+}
+
+.modal-item.active {
+  background: var(--modal-active-bg);
+}
+
+
+/* ================= MODAL ================= */
+
+.custom-modal .modal-dialog {
+  max-width: 95vw;
+  height: 90vh;
+}
+
+.custom-modal .modal-content {
+  background: var(--modal-bg);
+  border-radius: var(--modal-radius);
+  border: 1px solid var(--modal-border);
+  box-shadow: var(--modal-shadow);
+  overflow: hidden;
+}
+
+/* Header */
+.custom-modal-header {
+  background: var(--modal-header-bg);
+  color: var(--modal-text-primary);
+  border-bottom: 1px solid var(--modal-border);
+}
+
+/* Body */
+.custom-modal-body {
+  background: var(--modal-bg);
+  color: var(--modal-text-secondary);
+  padding: 0;
+  max-height: 58vh;
+  min-height: 35vh;
+}
+
+/* Sidebar */
+.custom-modal-sidebar {
+  background: var(--modal-sidebar-bg);
+  border-right: 1px solid var(--modal-border);
+  min-height: 35vh;
+}
+
+/* Sidebar buttons */
+.modal-sidebar-btn {
+  background: transparent;
+  color: var(--modal-text-secondary);
+  padding: 12px 16px;
+  transition: all 0.25s ease;
+}
+
+.modal-sidebar-btn:hover {
+  background: var(--modal-active-bg);
+  color: var(--modal-text-primary);
+}
+
+.modal-sidebar-btn.active {
+  background: var(--modal-active-bg);
+  color: var(--modal-text-primary);
+  font-weight: 600;
+}
+
+/* Right content */
+.custom-modal-content {
+  color: var(--modal-text-primary);
+}

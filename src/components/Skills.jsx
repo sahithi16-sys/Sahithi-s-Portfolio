@@ -135,12 +135,12 @@ switch (skill) {
   onHide={handleClose}
   backdrop="static"
   keyboard={false}
-  dialogClassName="w-100"
+  dialogClassName="w-100 custom-modal"
   style={{ maxWidth: "90vw",height: "80vh" }}
 >
 
   <Modal.Header
-    className="py-2 d-flex justify-content-between align-items-center"
+    className="custom-modal-header py-2 d-flex justify-content-between align-items-center"
     style={{
       backgroundColor: isDark ? "var(--color-primary)" : "var(--color-primary)",
       color: isDark ? "white" : "white"
@@ -165,25 +165,25 @@ switch (skill) {
     </div>
   </Modal.Header>
 
-<Modal.Body
-  style={{
-    backgroundColor: isDark ? "var(--color-bgPrimary)" : "var(--color-bgPrimary)",
-    color: isDark ? "var(--color-textPrimary)" : "var(--color-textPrimary)",
-    padding: "0",
-    maxHeight: "58vh",
-    minHeight: "35vh"
-  }}
+<Modal.Body className="custom-modal-body"
+  // style={{
+  //   backgroundColor: isDark ? "var(--color-bgPrimary)" : "var(--color-bgPrimary)",
+  //   color: isDark ? "var(--color-textPrimary)" : "var(--color-textPrimary)",
+  //   padding: "0",
+  //   maxHeight: "58vh",
+  //   minHeight: "35vh"
+  // }}
 >
   <div className="container">
     <div className="row">
 
       {/* Left Sidebar */}
       <div
-        className="col-5 p-0"
-        style={{
-          backgroundColor: isDark ? "var(--color-secondary)" : "var(--color-secondary)",
-          minHeight: "35vh"
-        }}
+        className="col-5 p-0 custom-modal-sidebar"
+        // style={{
+        //   backgroundColor: isDark ? "var(--color-secondary)" : "var(--color-secondary)",
+        //   minHeight: "35vh"
+        // }}
       >
         {[
           ["pl", "Programming Languages"],
@@ -194,20 +194,20 @@ switch (skill) {
         ].map(([key, label]) => (
           <button
             key={key}
-            className="btn w-100 text-start rounded-0"
-            style={{
-              backgroundColor:
-                skill === key
-                  ? "var(--color-primary)"
-                  : "transparent",
+            className="btn w-100 text-start rounded-0 modal-sidebar-btn"
+            // style={{
+            //   backgroundColor:
+            //     skill === key
+            //       ? "var(--color-primary)"
+            //       : "transparent",
 
-              color:
-                skill === key
-                  ? "white"
-                  : "white",
+            //   color:
+            //     skill === key
+            //       ? "white"
+            //       : "white",
 
-              fontWeight: skill === key ? "bold" : "normal"
-            }}
+            //   fontWeight: skill === key ? "bold" : "normal"
+            // }}
             onClick={() => setSkill(key)}
           >
             {label}
@@ -216,7 +216,7 @@ switch (skill) {
       </div>
 
       {/* Right Content Area */}
-      <div className="col-7 p-3">
+      <div className="col-7 p-3 custom-modal-content">
         {content}
       </div>
 

@@ -48,11 +48,11 @@ function Projects({ projects }) {
         onHide={handleClose}
         backdrop="static"
         keyboard={false}
-        dialogClassName="w-100"
+        dialogClassName="w-100 custom-modal"
         style={{ maxWidth: "90vw", height: "80vh" }}
       >
         <Modal.Header
-          className="py-2 d-flex justify-content-between align-items-center"
+          className="custom-modal-header py-2 d-flex justify-content-between align-items-center"
           style={{
             backgroundColor: isDark ? "var(--color-primary)" : "var(--color-primary)",
             color: isDark ? "white" : "white"
@@ -76,16 +76,7 @@ function Projects({ projects }) {
           </div>
         </Modal.Header>
 
-        <Modal.Body
-          style={{
-            backgroundColor: isDark ? "var(--color-bgPrimary)" : "var(--color-bgPrimary)",
-            color: isDark ? "var(--color-textPrimary)" : "var(--color-textPrimary)",
-            padding: 0,
-            maxHeight: "58vh",
-            minHeight: "35vh",
-            overflow: "auto"
-          }}
-        >
+        <Modal.Body className="custom-modal-body">
           <Carousel controls={false} indicators interval={null}>
             {projects.map((i, index) => (
               <Carousel.Item key={index} className="h-100">
