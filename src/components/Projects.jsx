@@ -1,7 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useContext } from "react";
 import { Modal, Carousel } from "react-bootstrap";
+import { ThemeContext } from '../contexts/ThemeContext';
 
 function Projects({ projects }) {
+  const { isDark } = useContext(ThemeContext);
   const [show, setShow] = useState(false);
 
   const handleShow = () => {
@@ -52,8 +54,8 @@ function Projects({ projects }) {
         <Modal.Header
           className="py-2 d-flex justify-content-between align-items-center"
           style={{
-            backgroundColor: "var(--primary-mint)",
-            color: "var(--dark-main)"
+            backgroundColor: isDark ? "var(--color-primary)" : "var(--color-primary)",
+            color: isDark ? "white" : "white"
           }}
         >
           <Modal.Title className="fw-bold">Projects</Modal.Title>
@@ -76,8 +78,8 @@ function Projects({ projects }) {
 
         <Modal.Body
           style={{
-            backgroundColor: "var(--bg-light)",
-            color: "var(--dark-main)",
+            backgroundColor: isDark ? "var(--color-bgPrimary)" : "var(--color-bgPrimary)",
+            color: isDark ? "var(--color-textPrimary)" : "var(--color-textPrimary)",
             padding: 0,
             maxHeight: "58vh",
             minHeight: "35vh",
@@ -123,18 +125,18 @@ function Projects({ projects }) {
                 </div>
 
                 <div className="p-3">
-                  <h5 className="fw-bold">{i.title}</h5>
-                  <h6 className="text-secondary">{i.subtitle}</h6>
+                  <h5 className="fw-bold" style={{ color: "var(--color-textPrimary)" }}>{i.title}</h5>
+                  <h6 style={{ color: "var(--color-textSecondary)" }}>{i.subtitle}</h6>
 
                   <div className="d-flex flex-wrap gap-2 my-2">
                     {i.techStack.map((b, ind) => (
-                      <span key={ind} className="badge rounded-pill bg-primary">
+                      <span key={ind} className="badge rounded-pill" style={{ backgroundColor: "var(--color-primary)" }}>
                         {b}
                       </span>
                     ))}
                   </div>
 
-                  <ul className="small mb-3">
+                  <ul className="small mb-3" style={{ color: "var(--color-textPrimary)" }}>
                     {i.description.map((l, item) => (
                       <li key={item}>{l}</li>
                     ))}
@@ -142,13 +144,14 @@ function Projects({ projects }) {
 
                   <div className="d-flex gap-3">
                     <button
-                      className="btn btn-primary px-4 fw-semibold"
+                      className="btn px-4 fw-semibold"
+                      style={{ backgroundColor: "var(--color-primary)", color: "white" }}
                       onClick={() => window.open(i.repo, "_blank")}
                     >
                       Code
                     </button>
 
-                    <button className="btn btn-outline-light px-4 fw-semibold">
+                    <button className="btn px-4 fw-semibold" style={{ border: `2px solid var(--color-primary)`, color: "var(--color-primary)" }}>
                       Live Demo
                     </button>
                   </div>

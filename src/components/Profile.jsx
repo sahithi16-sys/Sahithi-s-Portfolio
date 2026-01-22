@@ -1,5 +1,8 @@
-
+import { ThemeContext } from '../contexts/ThemeContext'
+import { useContext } from 'react';
 function Profile() {
+    const { isDark, toggleTheme } = useContext(ThemeContext);
+  
   return (
     <div className="card h-100 glass-card homepage-card">
       <div className="card-body p-5">

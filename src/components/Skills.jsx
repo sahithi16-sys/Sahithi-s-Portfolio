@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Modal, Button } from "react-bootstrap";
+import { ThemeContext } from '../contexts/ThemeContext';
 
 function Skills({ skills }) {
+  const { isDark } = useContext(ThemeContext);
   const [show, setShow] = useState(false);
   const [skill, setSkill] = useState(null);
 
@@ -21,7 +23,7 @@ let content;
 switch (skill) {
   case null:
     content = (
-      <p className="text-center mx-auto" style={{ color: "var(--dark-main)" }}>
+      <p className="text-center mx-auto" style={{ color: "var(--color-textPrimary)" }}>
         Select a skill category
       </p>
     );
@@ -140,8 +142,8 @@ switch (skill) {
   <Modal.Header
     className="py-2 d-flex justify-content-between align-items-center"
     style={{
-      backgroundColor: "var(--primary-mint)",
-      color: "var(--dark-main)"
+      backgroundColor: isDark ? "var(--color-primary)" : "var(--color-primary)",
+      color: isDark ? "white" : "white"
     }}
   >
     <Modal.Title className="fw-bold">Skills</Modal.Title>
@@ -165,8 +167,8 @@ switch (skill) {
 
 <Modal.Body
   style={{
-    backgroundColor: "var(--bg-light)",
-    color: "var(--dark-main)",
+    backgroundColor: isDark ? "var(--color-bgPrimary)" : "var(--color-bgPrimary)",
+    color: isDark ? "var(--color-textPrimary)" : "var(--color-textPrimary)",
     padding: "0",
     maxHeight: "58vh",
     minHeight: "35vh"
@@ -179,7 +181,7 @@ switch (skill) {
       <div
         className="col-5 p-0"
         style={{
-          backgroundColor: "var(--primary-mint)",
+          backgroundColor: isDark ? "var(--color-secondary)" : "var(--color-secondary)",
           minHeight: "35vh"
         }}
       >
@@ -196,13 +198,13 @@ switch (skill) {
             style={{
               backgroundColor:
                 skill === key
-                  ? "var(--accent-teal)"
+                  ? "var(--color-primary)"
                   : "transparent",
 
               color:
                 skill === key
                   ? "white"
-                  : "var(--dark-main)",
+                  : "white",
 
               fontWeight: skill === key ? "bold" : "normal"
             }}

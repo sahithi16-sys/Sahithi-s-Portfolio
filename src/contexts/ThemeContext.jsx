@@ -2,37 +2,39 @@ import { useState, createContext, useEffect } from "react";
 
 export const ThemeContext = createContext();
 
-const generateRandomColor = () => {
-  const letters = '0123456789ABCDEF';
-  let color = '#';
-  for (let i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-  }
-  return color;
+const lightModeColors = {
+  primary: "#667eea",
+  secondary: "#764ba2",
+  accent: "#f093fb",
+  textPrimary: "#1a1a1a",
+  textSecondary: "#666666",
+  bgPrimary: "#ffffff",
+  bgSecondary: "#f5f5f5",
+  cardBg: "#f9f9f9",
 };
 
-const generateThemeColors = () => {
-  return {
-    primary: generateRandomColor(),
-    secondary: generateRandomColor(),
-    accent: generateRandomColor(),
-    textPrimary: generateRandomColor(),
-    textSecondary: generateRandomColor(),
-    bgPrimary: generateRandomColor(),
-    bgSecondary: generateRandomColor(),
-  };
+const darkModeColors = {
+  primary: "#667eea",
+  secondary: "#764ba2",
+  accent: "#f093fb",
+  textPrimary: "#fafafa",
+  textSecondary: "#aed6fc",
+  bgPrimary: "#000000",
+  bgSecondary: "#1a1a2e",
+  cardBg: "#16213e",
 };
 
 function ThemeProvider({ children }) {
-  const [isDark, setIsDark] = useState(false);
-  const [themeColors, setThemeColors] = useState(() => generateThemeColors());
+  const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
-    applyTheme(isDark, themeColors);
-  }, [isDark, themeColors]);
+    applyTheme(isDark);
+  }, [isDark]);
 
-  const applyTheme = (dark, colors) => {
+  const applyTheme = (dark) => {
     const root = document.documentElement;
+    const colors = dark ? darkModeColors : lightModeColors;
+    
     root.setAttribute('data-theme', dark ? 'dark' : 'light');
     
     Object.entries(colors).forEach(([key, value]) => {
@@ -44,12 +46,8 @@ function ThemeProvider({ children }) {
     setIsDark(!isDark);
   };
 
-  const generateNewColors = () => {
-    setThemeColors(generateThemeColors());
-  };
-
   return (
-    <ThemeContext.Provider value={{ isDark, toggleTheme, generateNewColors, themeColors }}>
+    <ThemeContext.Provider value={{ isDark, toggleTheme }}>
       {children}
     </ThemeContext.Provider>
   );

@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Modal, Button } from "react-bootstrap";
+import { ThemeContext } from '../contexts/ThemeContext';
 
 function Community({community}) {
-
+  const { isDark } = useContext(ThemeContext);
   const [show, setShow] = useState(false);
 
   const handleShow = () => {
@@ -16,7 +17,7 @@ function Community({community}) {
 
   return (
     <>
-      <div className="card glass-card p-5 d-flex flex-column align-items-center justify-content-center text-center homepage-card" role="button" onClick={()=>handleShow()}>
+      <div>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="50"
@@ -50,8 +51,8 @@ function Community({community}) {
   <Modal.Header
     className="py-2 d-flex justify-content-between align-items-center"
     style={{
-      backgroundColor: "var(--primary-mint)",
-      color: "var(--dark-main)"
+      backgroundColor: isDark ? "var(--color-primary)" : "var(--color-primary)",
+      color: isDark ? "white" : "white"
     }}
   >
     <Modal.Title className="fw-bold">Community</Modal.Title>
@@ -74,8 +75,8 @@ function Community({community}) {
   </Modal.Header>
 <Modal.Body
   style={{
-    backgroundColor: "var(--bg-light)",
-    color: "var(--dark-main)",
+    backgroundColor: isDark ? "var(--color-bgPrimary)" : "var(--color-bgPrimary)",
+    color: isDark ? "var(--color-textPrimary)" : "var(--color-textPrimary)",
     padding: 0,
     maxHeight: "58vh",
     minHeight: "35vh",
@@ -90,8 +91,9 @@ function Community({community}) {
           <div
             className="h-100 p-3 rounded community-card"
             style={{
-              backgroundColor: "var(--primary-mint)",
-              color: "var(--dark-main)"
+              backgroundColor: isDark ? "var(--color-secondary)" : "var(--color-secondary)",
+              color: isDark ? "var(--color-textPrimary)" : "var(--color-textPrimary)",
+              border: `2px solid var(--color-primary)`
             }}
           >
             <div className="text-center">
@@ -109,7 +111,7 @@ function Community({community}) {
             <div className="card-body p-2">
               <h5
                 className="fw-bold"
-                style={{ color: "var(--accent-teal)" }}
+                style={{ color: "var(--color-accent)" }}
               >
                 {i.name}
               </h5>

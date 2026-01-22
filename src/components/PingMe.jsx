@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Modal, Button } from "react-bootstrap";
+import { ThemeContext } from '../contexts/ThemeContext';
 
 function PingMe() {
-
-    const [show, setShow] = useState(false);
+  const { isDark } = useContext(ThemeContext);
+  const [show, setShow] = useState(false);
   
     const handleShow = () => {
       console.log("show state(handleShow)", show);
@@ -31,8 +32,8 @@ function PingMe() {
   <Modal.Header
     className="py-2 d-flex justify-content-between align-items-center"
     style={{
-      backgroundColor: "var(--primary-mint)",
-      color: "var(--dark-main)"
+      backgroundColor: isDark ? "var(--color-primary)" : "var(--color-primary)",
+      color: isDark ? "white" : "white"
     }}
   >
     <Modal.Title className="fw-bold">Ping Me</Modal.Title>
@@ -56,8 +57,8 @@ function PingMe() {
 
   <Modal.Body
     style={{
-      backgroundColor: "var(--bg-light)",
-      color: "var(--dark-main)",
+      backgroundColor: isDark ? "var(--color-bgPrimary)" : "var(--color-bgPrimary)",
+      color: isDark ? "var(--color-textPrimary)" : "var(--color-textPrimary)",
       padding: 0,
       maxHeight: "58vh",
       minHeight: "35vh",
@@ -66,22 +67,23 @@ function PingMe() {
   >
     <div className="container py-3 d-flex flex-column gap-3">
 
-      {/* Email Card */}
       <div
         className="p-3 rounded contact-card"
         style={{
-          backgroundColor: "var(--primary-mint)",
-          cursor: "pointer"
+          backgroundColor: isDark ? "var(--color-secondary)" : "var(--color-secondary)",
+          color: isDark ? "white" : "white",
+          cursor: "pointer",
+          border: `2px solid ${isDark ? "var(--color-primary)" : "var(--color-primary)"}`
         }}
         onClick={() =>
           window.open("mailto:vsahithi1604@gmail.com", "_blank")
         }
       >
-        <h5 className="fw-bold" style={{ color: "black" }}>
+        <h5 className="fw-bold">
           <i className="me-1 fas fa-envelope"></i>
           E-mail
         </h5>
-        <h6 className="fw-semibold" style={{color: "gray"}}>
+        <h6 className="fw-semibold">
           vsahithi1604@gmail.com
         </h6>
       </div>
@@ -90,8 +92,10 @@ function PingMe() {
       <div
         className="p-3 rounded contact-card"
         style={{
-          backgroundColor: "var(--primary-mint)",
-          cursor: "pointer"
+          backgroundColor: isDark ? "var(--color-secondary)" : "var(--color-secondary)",
+          color: isDark ? "white" : "white",
+          cursor: "pointer",
+          border: `2px solid ${isDark ? "var(--color-primary)" : "var(--color-primary)"}`
         }}
         onClick={() =>
           window.open(
@@ -100,11 +104,11 @@ function PingMe() {
           )
         }
       >
-        <h5 className="fw-bold" style={{ color: "black" }}>
+        <h5 className="fw-bold">
           <i className="me-1 fab fa-linkedin"></i>
           Linkedin
         </h5>
-        <h6 className="fw-semibold" style={{color: "gray"}}>
+        <h6 className="fw-semibold">
           Sahithi Veeramosu
         </h6>
       </div>

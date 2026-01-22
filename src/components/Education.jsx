@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Modal, Button } from "react-bootstrap";
+import { ThemeContext } from '../contexts/ThemeContext';
 
 function Education({ education }) {
+  const { isDark } = useContext(ThemeContext);
   const [show, setShow] = useState(false);
 
   const handleShow = () => {
@@ -51,8 +53,8 @@ function Education({ education }) {
         <Modal.Header
           className="py-2 d-flex justify-content-between align-items-center"
           style={{
-            backgroundColor: "var(--primary-mint)",
-            color: "var(--dark-main)"
+            backgroundColor: isDark ? "var(--color-primary)" : "var(--color-primary)",
+            color: isDark ? "white" : "white"
           }}
         >
           <Modal.Title className="fw-bold">Education</Modal.Title>
@@ -88,8 +90,8 @@ function Education({ education }) {
 
         <Modal.Body
           style={{
-            backgroundColor: "var(--bg-light)",
-            color: "var(--dark-main)",
+            backgroundColor: isDark ? "var(--color-bgPrimary)" : "var(--color-bgPrimary)",
+            color: isDark ? "var(--color-textPrimary)" : "var(--color-textPrimary)",
             padding: 0,
             maxHeight: "58vh",
             minHeight: "35vh",
@@ -102,10 +104,14 @@ function Education({ education }) {
                 {/* Left Content */}
                 <div className={`col-5 ${index % 2 === 0 ? "text-end" : ""}`}>
                   {index % 2 === 0 && (
-                    <div className="education-card p-3 rounded">
+                    <div className="education-card p-3 rounded" style={{
+                      backgroundColor: isDark ? "var(--color-secondary)" : "var(--color-secondary)",
+                      color: isDark ? "white" : "white",
+                      border: `2px solid ${isDark ? "var(--color-primary)" : "var(--color-primary)"}`
+                    }}>
                       <h5
                         className="fw-bold"
-                        style={{ color: "var(--accent-teal)" }}
+                        style={{ color: "var(--color-accent)" }}
                       >
                         {i.degree} - {i.field}
                       </h5>
@@ -118,13 +124,15 @@ function Education({ education }) {
 
                 {/* Center Timeline */}
                 <div className="col-2 d-flex flex-column align-items-center timeline-container">
-                  {index !== 0 && <div className="timeline-line"></div>}
+                  {index !== 0 && <div className="timeline-line" style={{
+                    backgroundColor: isDark ? "var(--color-primary)" : "var(--color-primary)"
+                  }}></div>}
 
                   <div
                     className="rounded-circle p-2 my-2 timeline-icon"
                     style={{
-                      border: "2px solid var(--accent-teal)",
-                      backgroundColor: "var(--primary-mint)",
+                      border: `2px solid ${isDark ? "var(--color-primary)" : "var(--color-primary)"}`,
+                      backgroundColor: isDark ? "var(--color-secondary)" : "var(--color-secondary)",
                     }}
                   >
                     <svg
@@ -133,7 +141,7 @@ function Education({ education }) {
                       height="24"
                       viewBox="0 0 24 24"
                       fill="none"
-                      stroke="var(--accent-teal)"
+                      stroke={isDark ? "var(--color-accent)" : "var(--color-accent)"}
                       strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -145,17 +153,23 @@ function Education({ education }) {
                   </div>
 
                   {index !== education.length - 1 && (
-                    <div className="timeline-line"></div>
+                    <div className="timeline-line" style={{
+                      backgroundColor: isDark ? "var(--color-primary)" : "var(--color-primary)"
+                    }}></div>
                   )}
                 </div>
 
                 {/* Right Content */}
                 <div className={`col-5 ${index % 2 !== 0 ? "text-start" : ""}`}>
                   {index % 2 !== 0 && (
-                    <div className="education-card p-3 rounded">
+                    <div className="education-card p-3 rounded" style={{
+                      backgroundColor: isDark ? "var(--color-secondary)" : "var(--color-secondary)",
+                      color: isDark ? "white" : "white",
+                      border: `2px solid ${isDark ? "var(--color-primary)" : "var(--color-primary)"}`
+                    }}>
                       <h5
                         className="fw-bold"
-                        style={{ color: "var(--accent-teal)" }}
+                        style={{ color: "var(--color-accent)" }}
                       >
                         {i.degree} - {i.field}
                       </h5>

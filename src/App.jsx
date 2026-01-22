@@ -1,13 +1,16 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import { useContext } from "react";
 import HomePage from "./components/HomePage";
 import Particles from "./Particles";
-import ThemeProvider from "./contexts/ThemeContext";
+import ThemeProvider, { ThemeContext } from "./contexts/ThemeContext";
 
-function App() {
+function AppContent() {
+  const { isDark } = useContext(ThemeContext);
+
   return (
-    <ThemeProvider>
-      <div className="w-100 vh-100 position-relative overflow-hidden bg-black h-auto">
+    <div className="w-100 vh-100 position-relative overflow-hidden app-container" style={{ backgroundColor: isDark ? "#000000" : "#ffffff" }}>
+      {isDark && (
         <div className="position-absolute top-0 start-0 w-100 h-100">
           <Particles
             particleColors={["#ffffff", "#ffffff"]}
@@ -21,11 +24,19 @@ function App() {
             className="w-100 h-100"
           />
         </div>
+      )}
 
-        <div className="position-relative d-flex justify-content-center align-items-center h-100">
-          <HomePage />
-        </div>
+      <div className="position-relative d-flex justify-content-center align-items-center h-100">
+        <HomePage />
       </div>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <ThemeProvider>
+      <AppContent />
     </ThemeProvider>
   );
 }
