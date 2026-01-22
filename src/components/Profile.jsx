@@ -7,7 +7,7 @@ function Profile() {
     <div className="card h-100 glass-card homepage-card">
       <div className="card-body p-5">
         <h3 className="card-title">Sahithi Veeramosu</h3>
-        <p className="card-text fst-italic">One Line about me.</p>
+        <p className="card-text fst-italic">Web developer with a problem-solving mindset.</p>
         <p className="profile">
            Second year B.Tech CSE student with a strong interest for Web Development and Competitive Programming. Focused on problem-solving and building efficient web applications. Fast learner with the ability to adapt to new technologies and learn from experience.
         </p>
