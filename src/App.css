@@ -54,8 +54,8 @@
   background: transparent;
   border: none;
   color: white;
-  padding: 8px 14px;
-  border-radius: 6px;
+  padding: 5px 10px;
+  border-radius: 18px;
   cursor: pointer;
   transition: all 0.3s ease;
   display: flex;
@@ -285,8 +285,9 @@
 /* ================= MODAL ================= */
 
 .custom-modal .modal-dialog {
-  max-width: 95vw;
+  max-width: 98vw;
   height: 90vh;
+  width: 98vw;
 }
 
 .custom-modal .modal-content {
@@ -295,6 +296,9 @@
   border: 1px solid var(--modal-border);
   box-shadow: var(--modal-shadow);
   overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Header */
@@ -309,8 +313,8 @@
   background: var(--modal-bg);
   color: var(--modal-text-secondary);
   padding: 0;
-  max-height: 58vh;
-  min-height: 35vh;
+  flex: 1;
+  overflow-y: auto;
 }
 
 /* Sidebar */
@@ -342,4 +346,186 @@
 /* Right content */
 .custom-modal-content {
   color: var(--modal-text-primary);
+}
+/* ================= EDUCATION MODAL ================= */
+
+[data-theme="light"] .education-modal {
+  --edu-header-bg: #2563eb;
+  --edu-card-bg: #dbeafe;
+  --edu-card-text: #1e3a8a;
+  --edu-border-color: #2563eb;
+  --edu-accent-color: #1e40af;
+}
+
+[data-theme="dark"] .education-modal {
+  --edu-header-bg: #1e3a8a;
+  --edu-card-bg: #1e293b;
+  --edu-card-text: #ffffff;
+  --edu-border-color: #3b82f6;
+  --edu-accent-color: #60a5fa;
+}
+
+.education-modal .modal-dialog {
+  max-width: 95vw;
+  height: 90vh;
+}
+
+.education-modal .custom-modal-header {
+  background-color: var(--edu-header-bg);
+  color: white;
+  border-bottom: 1px solid var(--edu-border-color);
+}
+
+.education-modal .custom-modal-body {
+  background-color: var(--modal-bg);
+  color: var(--modal-text-primary);
+}
+
+.education-card {
+  background-color: var(--edu-card-bg);
+  color: var(--edu-card-text);
+  border: 2px solid var(--edu-border-color);
+  transition: all 0.3s ease;
+}
+
+.education-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+.timeline-line {
+  background-color: var(--edu-border-color);
+}
+
+.timeline-icon {
+  border-color: var(--edu-border-color);
+  background-color: var(--edu-card-bg);
+}
+
+.timeline-icon svg {
+  stroke: var(--edu-accent-color);
+}
+
+.education-card h5 {
+  color: var(--edu-accent-color);
+}
+
+/* ================= COMMUNITY MODAL ================= */
+
+[data-theme="light"] .community-modal {
+  --comm-header-bg: #2563eb;
+  --comm-card-bg: #dbeafe;
+  --comm-card-text: #1e3a8a;
+  --comm-border-color: #2563eb;
+  --comm-accent-color: #1e40af;
+}
+
+[data-theme="dark"] .community-modal {
+  --comm-header-bg: #1e3a8a;
+  --comm-card-bg: #1e293b;
+  --comm-card-text: #ffffff;
+  --comm-border-color: #3b82f6;
+  --comm-accent-color: #60a5fa;
+}
+
+.community-modal .custom-modal-header {
+  background-color: var(--comm-header-bg);
+  color: white;
+}
+
+.community-modal .community-card {
+  background-color: var(--comm-card-bg);
+  color: var(--comm-card-text);
+  border: 2px solid var(--comm-border-color);
+}
+
+.community-modal .community-card h5 {
+  color: var(--comm-accent-color);
+}
+
+/* ================= PROJECTS MODAL ================= */
+
+[data-theme="light"] .projects-modal {
+  --proj-header-bg: #2563eb;
+  --proj-text-primary: #1e3a8a;
+  --proj-text-secondary: #64748b;
+}
+
+[data-theme="dark"] .projects-modal {
+  --proj-header-bg: #1e3a8a;
+  --proj-text-primary: #ffffff;
+  --proj-text-secondary: #cbd5e1;
+}
+
+.projects-modal .custom-modal-header {
+  background-color: var(--proj-header-bg);
+  color: white;
+}
+
+/* ================= PINGME MODAL ================= */
+
+[data-theme="light"] .pingme-modal {
+  --ping-header-bg: #2563eb;
+  --ping-card-bg: #dbeafe;
+  --ping-card-text: #1e3a8a;
+  --ping-border-color: #2563eb;
+  --ping-accent-color: #1e40af;
+}
+
+[data-theme="dark"] .pingme-modal {
+  --ping-header-bg: #1e3a8a;
+  --ping-card-bg: #1e293b;
+  --ping-card-text: #ffffff;
+  --ping-border-color: #3b82f6;
+  --ping-accent-color: #60a5fa;
+}
+
+.pingme-modal .custom-modal-header {
+  background-color: var(--ping-header-bg);
+  color: white;
+}
+
+.pingme-modal .contact-card {
+  background-color: var(--ping-card-bg);
+  color: var(--ping-card-text);
+  border: 2px solid var(--ping-border-color);
+}
+
+.pingme-modal .contact-card h5 {
+  color: var(--ping-accent-color);
+}
+
+/* ================= SKILLS MODAL ================= */
+
+[data-theme="light"] .skills-modal {
+  --skill-sidebar-bg: #dbeafe;
+  --skill-sidebar-text: #1e3a8a;
+  --skill-sidebar-active-bg: #bfdbfe;
+  --skill-header-bg: #2563eb;
+}
+
+[data-theme="dark"] .skills-modal {
+  --skill-sidebar-bg: #1e293b;
+  --skill-sidebar-text: #ffffff;
+  --skill-sidebar-active-bg: #334155;
+  --skill-header-bg: #1e3a8a;
+}
+
+.skills-modal .custom-modal-header {
+  background-color: var(--skill-header-bg);
+  color: white;
+}
+
+.skills-modal .custom-modal-sidebar {
+  background-color: var(--skill-sidebar-bg);
+}
+
+.skills-modal .modal-sidebar-btn {
+  color: var(--skill-sidebar-text);
+}
+
+.skills-modal .modal-sidebar-btn:hover,
+.skills-modal .modal-sidebar-btn.active {
+  background-color: var(--skill-sidebar-active-bg);
+  color: white;
 }

@@ -47,15 +47,11 @@ function Education({ education }) {
         onHide={handleClose}
         backdrop="static"
         keyboard={false}
-        dialogClassName="w-100 custom-modal"
-        style={{ maxWidth: "90vw", height: "80vh" }}
+        dialogClassName="w-100 custom-modal education-modal"
+        style={{ maxWidth: "98vw", height: "90vh" }}
       >
         <Modal.Header
           className="custom-modal-header py-2 d-flex justify-content-between align-items-center"
-          style={{
-            backgroundColor: isDark ? "var(--color-primary)" : "var(--color-primary)",
-            color: isDark ? "white" : "white"
-          }}
         >
           <Modal.Title className="fw-bold">Education</Modal.Title>
 
@@ -95,17 +91,9 @@ function Education({ education }) {
                 {/* Left Content */}
                 <div className={`col-5 ${index % 2 === 0 ? "text-end" : ""}`}>
                   {index % 2 === 0 && (
-                    <div className="education-card p-3 rounded custom-modal-body" 
-                    // style={{
-                    //   backgroundColor: isDark ? "var(--color-secondary)" : "var(--color-secondary)",
-                    //   color: isDark ? "white" : "white",
-                    //   border: `2px solid ${isDark ? "var(--color-primary)" : "var(--color-primary)"}`
-                    // }}
+                    <div className="education-card p-3 rounded" 
                     >
-                      <h5
-                        className="fw-bold"
-                        style={{ color: "var(--color-accent)" }}
-                      >
+                      <h5 className="fw-bold">
                         {i.degree} - {i.field}
                       </h5>
                       <div>{i.institute}</div>
@@ -117,18 +105,10 @@ function Education({ education }) {
 
                 {/* Center Timeline */}
                 <div className="col-2 d-flex flex-column align-items-center timeline-container">
-                  {index !== 0 && <div className="timeline-line" 
-                  style={{
-                    backgroundColor: isDark ? "var(--color-primary)" : "var(--color-primary)"
-                  }}
-                  ></div>}
+                  {index !== 0 && <div className="timeline-line"></div>}
 
                   <div
                     className="rounded-circle p-2 my-2 timeline-icon"
-                    style={{
-                      border: `2px solid ${isDark ? "var(--color-primary)" : "var(--color-primary)"}`,
-                      backgroundColor: isDark ? "var(--color-secondary)" : "var(--color-secondary)",
-                    }}
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -136,7 +116,6 @@ function Education({ education }) {
                       height="24"
                       viewBox="0 0 24 24"
                       fill="none"
-                      stroke={isDark ? "var(--color-accent)" : "var(--color-accent)"}
                       strokeWidth="2"
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -148,24 +127,15 @@ function Education({ education }) {
                   </div>
 
                   {index !== education.length - 1 && (
-                    <div className="timeline-line" style={{
-                      backgroundColor: isDark ? "var(--color-primary)" : "var(--color-primary)"
-                    }}></div>
+                    <div className="timeline-line"></div>
                   )}
                 </div>
 
                 {/* Right Content */}
                 <div className={`col-5 ${index % 2 !== 0 ? "text-start" : ""}`}>
                   {index % 2 !== 0 && (
-                    <div className="education-card p-3 rounded" style={{
-                      backgroundColor: isDark ? "var(--color-secondary)" : "var(--color-secondary)",
-                      color: isDark ? "white" : "white",
-                      border: `2px solid ${isDark ? "var(--color-primary)" : "var(--color-primary)"}`
-                    }}>
-                      <h5
-                        className="fw-bold"
-                        style={{ color: "var(--color-accent)" }}
-                      >
+                    <div className="education-card p-3 rounded">
+                      <h5 className="fw-bold">
                         {i.degree} - {i.field}
                       </h5>
                       <div>{i.institute}</div>

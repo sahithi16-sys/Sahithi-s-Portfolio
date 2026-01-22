@@ -70,11 +70,13 @@ function HomePage() {
         level: "1 Star",
         rating: 1330,
         className: "devicon-codechef-plain colored",
+        profile_link : "https://www.codechef.com/users/sahithi011",
       },
       {
         platform: "Codeforces",
         rating: 592,
         className: "devicon-codeforces-plain colored",
+        profile_link : "https://codeforces.com/profile/sahithi.011",
       },
     ],
 

@@ -80,6 +80,7 @@ switch (skill) {
             {i.level && <p><b>Level:</b> {i.level}</p>}
 
             <p><b>Rating:</b> {i.rating}</p>
+            <button className={`btn ${isDark? `bg-white text-dark`:`bg-white text-black`}`} onClick={()=> {window.open(i.profile_link,"_blank")}}>View my Profile</button>
           </div>
         ))}
       </div>
@@ -135,8 +136,8 @@ switch (skill) {
   onHide={handleClose}
   backdrop="static"
   keyboard={false}
-  dialogClassName="w-100 custom-modal"
-  style={{ maxWidth: "90vw",height: "80vh" }}
+  dialogClassName="w-100 custom-modal skills-modal"
+  style={{ maxWidth: "98vw",height: "90vh" }}
 >
 
   <Modal.Header

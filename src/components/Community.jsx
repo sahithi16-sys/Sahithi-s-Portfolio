@@ -45,15 +45,11 @@ function Community({community}) {
         onHide={handleClose}
         backdrop="static"
         keyboard={false}
-        dialogClassName="w-100 custom-modal"
-        style={{ maxWidth: "90vw", height: "80vh" }}
+        dialogClassName="w-100 custom-modal community-modal"
+        style={{ maxWidth: "98vw", height: "90vh" }}
       >
   <Modal.Header
     className="custom-modal-header py-2 d-flex justify-content-between align-items-center"
-    style={{
-      backgroundColor: isDark ? "var(--color-primary)" : "var(--color-primary)",
-      color: isDark ? "white" : "white"
-    }}
   >
     <Modal.Title className="fw-bold">Community</Modal.Title>
 
@@ -81,11 +77,6 @@ function Community({community}) {
         <div className="col" style={{width: "30vw"}} key={i.name}>
           <div
             className="h-100 p-3 rounded community-card"
-            style={{
-              backgroundColor: isDark ? "var(--color-secondary)" : "var(--color-secondary)",
-              color: isDark ? "var(--color-textPrimary)" : "var(--color-textPrimary)",
-              border: `2px solid var(--color-primary)`
-            }}
           >
             <div className="text-center">
               <img
@@ -100,10 +91,7 @@ function Community({community}) {
             </div>
 
             <div className="card-body p-2">
-              <h5
-                className="fw-bold"
-                style={{ color: "var(--color-accent)" }}
-              >
+              <h5 className="fw-bold">
                 {i.name}
               </h5>
 

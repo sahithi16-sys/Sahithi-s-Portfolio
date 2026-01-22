@@ -26,15 +26,11 @@ function PingMe() {
   onHide={handleClose}
   backdrop="static"
   keyboard={false}
-  dialogClassName="w-100 custom-modal"
-  style={{ maxWidth: "90vw", height: "80vh" }}
+  dialogClassName="w-100 custom-modal pingme-modal"
+  style={{ maxWidth: "98vw", height: "90vh" }}
 >
   <Modal.Header
     className="custom-modal-header py-2 d-flex justify-content-between align-items-center"
-    style={{
-      backgroundColor: isDark ? "var(--color-primary)" : "var(--color-primary)",
-      color: isDark ? "white" : "white"
-    }}
   >
     <Modal.Title className="fw-bold">Ping Me</Modal.Title>
 
@@ -60,18 +56,27 @@ function PingMe() {
 
       <div
         className="p-3 rounded contact-card"
-        style={{
-          backgroundColor: isDark ? "var(--color-secondary)" : "var(--color-secondary)",
-          color: isDark ? "white" : "white",
-          cursor: "pointer",
-          border: `2px solid ${isDark ? "var(--color-primary)" : "var(--color-primary)"}`
-        }}
+        style={{ cursor: "pointer" }}
         onClick={() =>
           window.open("mailto:vsahithi1604@gmail.com", "_blank")
         }
       >
         <h5 className="fw-bold">
-          <i className="me-1 fas fa-envelope"></i>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke={isDark ? "#60a5fa" : "#1e40af"}
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            style={{ marginRight: "8px", display: "inline" }}
+          >
+            <rect x="2" y="4" width="20" height="16" rx="2" />
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+          </svg>
           E-mail
         </h5>
         <h6 className="fw-semibold">
@@ -82,12 +87,7 @@ function PingMe() {
       {/* Linkedin Card */}
       <div
         className="p-3 rounded contact-card"
-        style={{
-          backgroundColor: isDark ? "var(--color-secondary)" : "var(--color-secondary)",
-          color: isDark ? "white" : "white",
-          cursor: "pointer",
-          border: `2px solid ${isDark ? "var(--color-primary)" : "var(--color-primary)"}`
-        }}
+        style={{ cursor: "pointer" }}
         onClick={() =>
           window.open(
             "https://www.linkedin.com/in/sahithi-veeramosu-215aa135b/",
@@ -96,7 +96,22 @@ function PingMe() {
         }
       >
         <h5 className="fw-bold">
-          <i className="me-1 fab fa-linkedin"></i>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke={isDark ? "#60a5fa" : "#1e40af"}
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            style={{ marginRight: "8px", display: "inline" }}
+          >
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+            <rect x="2" y="9" width="4" height="12" />
+            <circle cx="4" cy="4" r="2" />
+          </svg>
           Linkedin
         </h5>
         <h6 className="fw-semibold">

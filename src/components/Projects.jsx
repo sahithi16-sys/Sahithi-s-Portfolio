@@ -48,15 +48,11 @@ function Projects({ projects }) {
         onHide={handleClose}
         backdrop="static"
         keyboard={false}
-        dialogClassName="w-100 custom-modal"
-        style={{ maxWidth: "90vw", height: "80vh" }}
+        dialogClassName="w-100 custom-modal projects-modal"
+        style={{ maxWidth: "98vw", height: "90vh" }}
       >
         <Modal.Header
           className="custom-modal-header py-2 d-flex justify-content-between align-items-center"
-          style={{
-            backgroundColor: isDark ? "var(--color-primary)" : "var(--color-primary)",
-            color: isDark ? "white" : "white"
-          }}
         >
           <Modal.Title className="fw-bold">Projects</Modal.Title>
           <div className="toolbar-btns d-flex gap-2">
@@ -77,7 +73,7 @@ function Projects({ projects }) {
         </Modal.Header>
 
         <Modal.Body className="custom-modal-body">
-          <Carousel controls={false} indicators interval={null}>
+          <Carousel controls={false} indicators interval={null} style={{ paddingBottom: "55px" }}>
             {projects.map((i, index) => (
               <Carousel.Item key={index} className="h-100">
                 {/* IMAGE SECTION */}
@@ -133,18 +129,18 @@ function Projects({ projects }) {
                     ))}
                   </ul>
 
-                  <div className="d-flex gap-3">
+                  <div className="d-flex justify-content-center gap-3">
                     <button
                       className="btn px-4 fw-semibold"
                       style={{ backgroundColor: "var(--color-primary)", color: "white" }}
                       onClick={() => window.open(i.repo, "_blank")}
                     >
-                      Code
+                      View Code
                     </button>
 
-                    <button className="btn px-4 fw-semibold" style={{ border: `2px solid var(--color-primary)`, color: "var(--color-primary)" }}>
+                    {/* <button className="btn px-4 fw-semibold" style={{ border: `2px solid var(--color-primary)`, color: "var(--color-primary)" }}>
                       Live Demo
-                    </button>
+                    </button> */}
                   </div>
                 </div>
               </Carousel.Item>
