@@ -47,8 +47,9 @@ function Education({ education }) {
         onHide={handleClose}
         backdrop="static"
         keyboard={false}
+        size="lg"
         dialogClassName="w-100 custom-modal education-modal"
-        style={{ maxWidth: "80vw", height: "90vh", width: "100%"}}
+        style={{ maxWidth: "100vw", height: "90vh", width: "100%"}}
       >
         <Modal.Header
           className="custom-modal-header py-2 d-flex justify-content-between align-items-center"

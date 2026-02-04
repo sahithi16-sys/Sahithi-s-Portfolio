@@ -9,7 +9,14 @@ function AppContent() {
   const { isDark } = useContext(ThemeContext);
 
   return (
-    <div className="w-100 vh-100 position-relative overflow-hidden app-container" style={{ backgroundColor: isDark ? "#000000" : "#ffffff" }}>
+<div
+  className="w-100 vh-100 position-relative app-container"
+  style={{
+    backgroundColor: isDark ? "#000000" : "#ffffff",
+    height: "100vh",
+    overflowY: "auto"
+  }}
+>
       {isDark && (
         <div className="position-absolute top-0 start-0 w-100 h-100">
           <Particles

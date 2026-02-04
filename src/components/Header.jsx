@@ -8,9 +8,9 @@ function Header() {
     <div className='homepage-card d-flex flex-row justify-content-between align-items-center w-100' style={{ maxWidth: "900px" }}>
         <h4 className='d-inline-block' style={{ margin: 0, color: 'var(--color-textPrimary)' }}>Current: Student</h4>
         
-        <div className="btn-group p-0" role="group">
+        <div className="btn-group" role="group" style={{ padding: "6px 6px 6px 6px", marginRight: "0" }}>
           <button 
-            className={`btn theme-btn ${!isDark ? 'active' : ''}`}
+            className={`btn theme-btn ${!isDark ? 'active' : ''}`}           
             onClick={toggleTheme}
             title='Light Mode'
           >
